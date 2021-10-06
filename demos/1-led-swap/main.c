@@ -5,8 +5,8 @@
 
 int main(void) {
   P1DIR |= LEDS;
-  P1OUT &= ~LED_RED;
-  P1OUT |= LED_GREEN;
+  P1OUT &= ~LED_GREEN;
+  P1OUT |= LED_RED;
 
   //  configureClocks();		/* setup master oscillator, CPU & peripheral clocks */
   //enableWDTInterrupts();	/* enable periodic interrupt */

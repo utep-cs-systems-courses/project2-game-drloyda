@@ -14,12 +14,20 @@ void main(void)
 
   P1DIR |= LEDS;
   P1OUT &= ~LEDS;		/* leds initially off */
+
+  P2DIR |= LEDS;
+  P2OUT &= ~LEDS;
   
   P1REN |= SWITCHES;		/* enables resistors for switches */
   P1IE |= SWITCHES;		/* enable interrupts from switches */
   P1OUT |= SWITCHES;		/* pull-ups for switches */
   P1DIR &= ~SWITCHES;		/* set switches' bits for input */
 
+  P2REN |= SWITCHES;
+  P2IE |= SWITCHES;
+  P2OUT |= SWITCHES;
+  P2DIR &= ~SWICTHES;
+  
   or_sr(0x18);  // CPU off, GIE on
 } 
 

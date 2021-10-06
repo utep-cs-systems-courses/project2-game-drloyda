@@ -14,12 +14,20 @@ void main(void)
 
   P1DIR |= LEDS;
   P1OUT &= ~LEDS;		/* leds initially off */
+
+  P2DIR |= LEDS;
+  P2OUT &= ~LEDS;
   
   P1REN |= SWITCHES;		/* enables resistors for switches */
   P1IE |= SWITCHES;		/* enable interrupts from switches */
   P1OUT |= SWITCHES;		/* pull-ups for switches */
   P1DIR &= ~SWITCHES;		/* set switches' bits for input */
 
+  P2REN |= SWITCHES;
+  P2IE |= SWITCHES;
+  P2OUT |= SWITCHES;
+  P2DIR &= ~SWICTHES;
+  
   or_sr(0x18);  // CPU off, GIE on
 } 
 
@@ -27,18 +35,27 @@ void
 switch_interrupt_handler()
 {
   char p1val = P1IN;		/* switch is in P1 */
-
+  char p2val = P2IN;
+  
 /* update switch interrupt sense to detect changes from current buttons */
   P1IES |= (p1val & SWITCHES);	/* if switch up, check for transition to down */
   P1IES &= (p1val | ~SWITCHES);	/* if switch down, check for transition to up */
+  P2IES |= (p2val & SWITCHES);
+  P2IES &= (p2cal | SWITCHES);
 
 /* up=red, down=green */
   if (p1val & SW1) {
     P1OUT |= LED_RED;
     P1OUT &= ~LED_GREEN;
+
+    P2OUT |= LED_RED;
+    P2OUT &= ~LED_GREEN;
   } else {
     P1OUT |= LED_GREEN;
     P1OUT &= ~LED_RED;
+
+    P2OUT |= LED_GREEN;
+    P2OUT &= ~LED_RED;
   }
 }
 
@@ -47,7 +64,8 @@ switch_interrupt_handler()
 void
 __interrupt_vec(PORT1_VECTOR) Port_1(){
   if (P1IFG & SWITCHES) {	      /* did a button cause this interrupt? P1IFG = Port 1 Interrupt flag */
-    P1IFG &= ~SWITCHES;		      /* clear pending sw interrupts */
+    P1IFG &= ~SWITCHES;
+    /* clear pending sw interrupts */
     switch_interrupt_handler();	/* single handler for all switches */
   }
 }
