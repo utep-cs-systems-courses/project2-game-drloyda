@@ -1,0 +1,651 @@
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/8-switch> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o button.elf main.o ../lib/libTimer.a
+msp430loader.sh button.elf
+check 
+No valid msp430 devices found! Are you sure the MSP430 is connected to the vm (check lsusb)? 
+make: *** [Makefile:18: load] Error 1
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/8-switch> make load
+msp430loader.sh button.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  button.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f button.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 652 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/8-switch> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h   -c -o main.o main.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o button.elf main.o ../lib/libTimer.a
+msp430loader.sh button.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  button.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f button.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 650 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/8-switch>..
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos> cd 11-buzzer
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 414 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 412 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c: In function 'main':
+buzzerMain.c:10:5: warning: implicit declaration of function 'playBuzzer' [-Wimplicit-function-declaration]
+     playBuzzer();
+     ^~~~~~~~~~
+buzzerMain.c: At top level:
+buzzerMain.c:18:6: warning: conflicting types for 'playBuzzer'
+ void playBuzzer(){
+      ^~~~~~~~~~
+buzzerMain.c:10:5: note: previous implicit declaration of 'playBuzzer' was here
+     playBuzzer();
+     ^~~~~~~~~~
+buzzerMain.c: In function 'playBuzzer':
+buzzerMain.c:25:32: error: expected ';' before '{' token
+     buzzer_set_period(notes[i])
+                                ^
+                                ;
+   {
+   ~                             
+buzzerMain.c:27:1: error: expected declaration or statement at end of input
+ }
+ ^
+buzzerMain.c:27:1: error: expected declaration or statement at end of input
+make: *** [<builtin>: buzzerMain.o] Error 1
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c: In function 'main':
+buzzerMain.c:10:5: warning: implicit declaration of function 'playBuzzer' [-Wimplicit-function-declaration]
+     playBuzzer();
+     ^~~~~~~~~~
+buzzerMain.c: At top level:
+buzzerMain.c:18:6: warning: conflicting types for 'playBuzzer'
+ void playBuzzer(){
+      ^~~~~~~~~~
+buzzerMain.c:10:5: note: previous implicit declaration of 'playBuzzer' was here
+     playBuzzer();
+     ^~~~~~~~~~
+buzzerMain.c: In function 'playBuzzer':
+buzzerMain.c:27:1: error: expected declaration or statement at end of input
+ }
+ ^
+buzzerMain.c:27:1: error: expected declaration or statement at end of input
+make: *** [<builtin>: buzzerMain.o] Error 1
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c: In function 'main':
+buzzerMain.c:10:5: warning: implicit declaration of function 'playBuzzer' [-Wimplicit-function-declaration]
+     playBuzzer();
+     ^~~~~~~~~~
+buzzerMain.c: At top level:
+buzzerMain.c:18:6: warning: conflicting types for 'playBuzzer'
+ void playBuzzer(){
+      ^~~~~~~~~~
+buzzerMain.c:10:5: note: previous implicit declaration of 'playBuzzer' was here
+     playBuzzer();
+     ^~~~~~~~~~
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 480 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c: In function 'main':
+buzzerMain.c:11:5: warning: implicit declaration of function 'playBuzzer' [-Wimplicit-function-declaration]
+     playBuzzer();
+     ^~~~~~~~~~
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+buzzerMain.o: In function `main':
+buzzerMain.c:(.text+0xe): undefined reference to `playBuzzer'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:14: buzzer.elf] Error 1
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 530 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make laod
+make: *** No rule to make target 'laod'.  Stop.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 530 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 540 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 530 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 548 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 548 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 558 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 548 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c:18:4: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+    ^~~~
+buzzerMain.c:18:4: note: (near initialization for 'notes')
+buzzerMain.c:18:10: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+          ^~~~
+buzzerMain.c:18:10: note: (near initialization for 'notes')
+buzzerMain.c:18:16: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                ^~~~
+buzzerMain.c:18:16: note: (near initialization for 'notes')
+buzzerMain.c:18:22: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                      ^~~~
+buzzerMain.c:18:22: note: (near initialization for 'notes')
+buzzerMain.c:18:28: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                            ^~~~
+buzzerMain.c:18:28: note: (near initialization for 'notes')
+buzzerMain.c:18:34: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                  ^~~~
+buzzerMain.c:18:34: note: (near initialization for 'notes')
+buzzerMain.c:18:40: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                        ^~~~
+buzzerMain.c:18:40: note: (near initialization for 'notes')
+buzzerMain.c:18:46: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                              ^~~~
+buzzerMain.c:18:46: note: (near initialization for 'notes')
+buzzerMain.c:18:52: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                    ^~~~
+buzzerMain.c:18:52: note: (near initialization for 'notes')
+buzzerMain.c:18:58: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                          ^~~~
+buzzerMain.c:18:58: note: (near initialization for 'notes')
+buzzerMain.c:18:64: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                                ^~~~
+buzzerMain.c:18:64: note: (near initialization for 'notes')
+buzzerMain.c:18:70: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                                      ^~~~
+buzzerMain.c:18:70: note: (near initialization for 'notes')
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 558 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c:18:4: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+    ^~~~
+buzzerMain.c:18:4: note: (near initialization for 'notes')
+buzzerMain.c:18:10: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+          ^~~~
+buzzerMain.c:18:10: note: (near initialization for 'notes')
+buzzerMain.c:18:16: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                ^~~~
+buzzerMain.c:18:16: note: (near initialization for 'notes')
+buzzerMain.c:18:22: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                      ^~~~
+buzzerMain.c:18:22: note: (near initialization for 'notes')
+buzzerMain.c:18:28: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                            ^~~~
+buzzerMain.c:18:28: note: (near initialization for 'notes')
+buzzerMain.c:18:34: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                  ^~~~
+buzzerMain.c:18:34: note: (near initialization for 'notes')
+buzzerMain.c:18:40: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                        ^~~~
+buzzerMain.c:18:40: note: (near initialization for 'notes')
+buzzerMain.c:18:46: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                              ^~~~
+buzzerMain.c:18:46: note: (near initialization for 'notes')
+buzzerMain.c:18:52: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                    ^~~~
+buzzerMain.c:18:52: note: (near initialization for 'notes')
+buzzerMain.c:18:58: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                          ^~~~
+buzzerMain.c:18:58: note: (near initialization for 'notes')
+buzzerMain.c:18:64: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                                ^~~~
+buzzerMain.c:18:64: note: (near initialization for 'notes')
+buzzerMain.c:18:70: warning: excess elements in array initializer
+    2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730};
+                                                                      ^~~~
+buzzerMain.c:18:70: note: (near initialization for 'notes')
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 548 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 598 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 588 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c:19:52: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                    ^~~~
+buzzerMain.c:19:52: note: (near initialization for 'notes')
+buzzerMain.c:19:58: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                          ^~~~
+buzzerMain.c:19:58: note: (near initialization for 'notes')
+buzzerMain.c:19:64: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                                ^~~~
+buzzerMain.c:19:64: note: (near initialization for 'notes')
+buzzerMain.c:19:70: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                                      ^~~~
+buzzerMain.c:19:70: note: (near initialization for 'notes')
+buzzerMain.c:20:4: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+    ^~~~
+buzzerMain.c:20:4: note: (near initialization for 'notes')
+buzzerMain.c:20:10: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+          ^~~~
+buzzerMain.c:20:10: note: (near initialization for 'notes')
+buzzerMain.c:20:16: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                ^~~~
+buzzerMain.c:20:16: note: (near initialization for 'notes')
+buzzerMain.c:20:22: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                      ^~~~
+buzzerMain.c:20:22: note: (near initialization for 'notes')
+buzzerMain.c:20:28: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                            ^~~~
+buzzerMain.c:20:28: note: (near initialization for 'notes')
+buzzerMain.c:20:34: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                  ^~~~
+buzzerMain.c:20:34: note: (near initialization for 'notes')
+buzzerMain.c:20:40: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                        ^~~~
+buzzerMain.c:20:40: note: (near initialization for 'notes')
+buzzerMain.c:20:46: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                              ^~~~
+buzzerMain.c:20:46: note: (near initialization for 'notes')
+buzzerMain.c:20:52: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                    ^~~~
+buzzerMain.c:20:52: note: (near initialization for 'notes')
+buzzerMain.c:20:58: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                          ^~~~
+buzzerMain.c:20:58: note: (near initialization for 'notes')
+buzzerMain.c:20:64: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                                ^~~~
+buzzerMain.c:20:64: note: (near initialization for 'notes')
+buzzerMain.c:20:70: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                                      ^~~~
+buzzerMain.c:20:70: note: (near initialization for 'notes')
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 598 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make laod
+make: *** No rule to make target 'laod'.  Stop.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+buzzerMain.c:19:52: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                    ^~~~
+buzzerMain.c:19:52: note: (near initialization for 'notes')
+buzzerMain.c:19:58: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                          ^~~~
+buzzerMain.c:19:58: note: (near initialization for 'notes')
+buzzerMain.c:19:64: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                                ^~~~
+buzzerMain.c:19:64: note: (near initialization for 'notes')
+buzzerMain.c:19:70: warning: excess elements in array initializer
+    3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
+                                                                      ^~~~
+buzzerMain.c:19:70: note: (near initialization for 'notes')
+buzzerMain.c:20:4: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+    ^~~~
+buzzerMain.c:20:4: note: (near initialization for 'notes')
+buzzerMain.c:20:10: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+          ^~~~
+buzzerMain.c:20:10: note: (near initialization for 'notes')
+buzzerMain.c:20:16: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                ^~~~
+buzzerMain.c:20:16: note: (near initialization for 'notes')
+buzzerMain.c:20:22: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                      ^~~~
+buzzerMain.c:20:22: note: (near initialization for 'notes')
+buzzerMain.c:20:28: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                            ^~~~
+buzzerMain.c:20:28: note: (near initialization for 'notes')
+buzzerMain.c:20:34: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                  ^~~~
+buzzerMain.c:20:34: note: (near initialization for 'notes')
+buzzerMain.c:20:40: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                        ^~~~
+buzzerMain.c:20:40: note: (near initialization for 'notes')
+buzzerMain.c:20:46: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                              ^~~~
+buzzerMain.c:20:46: note: (near initialization for 'notes')
+buzzerMain.c:20:52: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                    ^~~~
+buzzerMain.c:20:52: note: (near initialization for 'notes')
+buzzerMain.c:20:58: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                          ^~~~
+buzzerMain.c:20:58: note: (near initialization for 'notes')
+buzzerMain.c:20:64: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                                ^~~~
+buzzerMain.c:20:64: note: (near initialization for 'notes')
+buzzerMain.c:20:70: warning: excess elements in array initializer
+    3034, 4291, 5115, 6079, 3215, 4291, 5115, 6079, 3034, 4291, 5115, 6079};
+                                                                      ^~~~
+buzzerMain.c:20:70: note: (near initialization for 'notes')
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 588 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 630 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 630 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 630 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 620 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 654 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 644 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 662 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> make load
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include   -c -o buzzerMain.o buzzerMain.c
+msp430-elf-gcc -mmcu=msp430g2553 -I../h -L/opt/ti/msp430_gcc/include -o buzzer.elf buzzer.o buzzerMain.o ../lib/libTimer.a
+msp430loader.sh  buzzer.elf
+check 
+Detected msp430 dev kit
+/opt/ti/uniflash/dslite.sh --config /opt/ti/uniflash/MSP430G2553.ccxml -f  buzzer.elf
+Executing the following command:
+> /opt/ti/uniflash_5.1.0/deskdb/content/TICloudAgent/linux/ccs_base/DebugServer/bin/DSLite flash --config /opt/ti/uniflash/MSP430G2553.ccxml -f buzzer.elf
+
+For more details and examples, please refer to the UniFlash Quick Start guide.
+
+info: MSP430:  Flash/FRAM usage is 652 bytes. RAM usage is 0 bytes.
+student@systems-vm:~/projects/project2-game-drloyda/updated_demos/11-buzzer> 
