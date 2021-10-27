@@ -1,3 +1,4 @@
+
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
@@ -29,9 +30,11 @@ int main() {
   
   or_sr(0x18);          // CPU off
 }
-
+int sw1Down = 0;
+int sw2Down = 0;
+int sw3Down;
+int sw4Down;
 void
-
 switch_interrupt_handler()
 
 {
@@ -42,17 +45,22 @@ switch_interrupt_handler()
   P2IES |= (p2val & SWITCHES);/* if switch up, sense down */
   P2IES &= (p2val | ~SWITCHES);/* if switch down, sense up */
 
-  /* up=red, down=green */
-  if ((p2val & SWITCHES)!= 15) {
-    
-  }else {
+  /* up=no sequence, down=sequence */
+  //toggle sw1 on or off
+  if((p2val & SWITCHES) == 14){
+    sw1Down ^= 1;
     buzzer_init();
+  //toggle sw2 on or off
+  }else if((p2val & SWITCHES) == 13){
+    sw2Down ^= 1;
+  }
+  else {
+    buzzer_set_period(0);
   }
 }
 
 
 /* Switch on P2 (S2) */
-
 void
 __interrupt_vec(PORT2_VECTOR) Port_2(){
   if (P2IFG & SWITCHES) {      /* did a button cause this interrupt? */
@@ -74,34 +82,38 @@ int notes2[26] = {5115, 0, 5115, 0, 5115, 0, 5115, 0, 5115, 4819, 5730, 0, 5730,
 int time[26] = {62, 31, 62, 31, 62, 31, 62, 31, 62, 31, 31, 62, 31, 125, 31, 62, 31, 62,
 		31, 31, 31, 62, 31, 31, 31, 125};
 int i = 0;
-
 void
 __interrupt_vec(WDT_VECTOR) WDT(){
   secondCount++;
-  if((P2IN & SWITCHES) == 14){
-    if(secondCount >= 46){
-      secondCount = 0;
-      if(i == 64){
-        i = 0;
-      }
-      // buzzer_set_period(0);
-      P1OUT ^= LED_GREEN;
-      P1OUT ^= LED_RED;
-      buzzer_set_period(notes[i]);
-      //  buzzer_set_period(0);
-      i++;
-    }
-  }else if((P2IN & SWITCHES) == 13){
-    secondCount++;
-    if(secondCount >= time[i]){
-      secondCount = 0;
-      if(i >= 26){
-	i = 0;
-      }
-      buzzer_set_period(notes2[i]);
-      i++;
-    }
+  
+  if(sw1Down == 1){ //if sw1 pressed
+    playSongOne();
+   
+  }else if(sw2Down == 1 ){ //if sw2 pressed
+    playSongTwo();
   }else{
     buzzer_set_period(0);
+  }
+}
+void playSongOne(){
+  if(secondCount >= 46){
+    secondCount = 0;
+    if(i == 64){
+      i = 0;
+    }
+    P1OUT ^= LED_GREEN;
+    P1OUT ^= LED_RED;
+    buzzer_set_period(notes[i]);
+    i++;
+  }
+}
+void playSongTwo(){
+  if(secondCount >= time[i]){
+    secondCount = 0;
+    if(i >= 26){
+      i = 0;
+    }
+    buzzer_set_period(notes2[i]);
+    i++;
   }
 }
