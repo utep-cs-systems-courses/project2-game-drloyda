@@ -25,7 +25,7 @@ all: buzzer.elf
 
 #additional rules for files
 
-buzzer.elf: ${COMMON_OBJECTS} buzzer.o main.o ../lib/libTimer.a
+buzzer.elf: playSongTwo-c.o buzzer.o main.o ../lib/libTimer.a
 
 	${CC} ${CFLAGS} -o $@ $^
 
@@ -35,7 +35,8 @@ load: buzzer.elf
 
 	msp430loader.sh  $^
 
-
 clean: $^
 
 	rm -f *.o *.elf
+
+playSongTwo-c.o: buzzer.h

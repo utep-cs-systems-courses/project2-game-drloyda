@@ -1,4 +1,3 @@
-
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
@@ -14,7 +13,6 @@
 #define SWITCHES (SW1 | SW2 | SW3 | SW4)  
 
 int main() {
-
   P1DIR |= LEDS;
   P1OUT &= ~LED_GREEN;
   P1OUT |= LED_RED;
@@ -104,8 +102,8 @@ __interrupt_vec(WDT_VECTOR) WDT(){
   }else if(sw2Down == 1 ){ //if sw2 pressed
     playSongTwo();
   }else if(sw3Down == 1){
+    toggleLights();
     playSongThree();
-    dimLights();
   }else if(sw4Down ==1){
     buzzer_set_period(0);
   }else{
@@ -121,39 +119,31 @@ void playSongOne(){
     if(i >= 64){
       i = 0;
     }
-    toggleLights();
+    P1OUT ^= LED_GREEN;
+    P1OUT ^= LED_RED;
     buzzer_set_period(notes[i]);
     i++;
   }
 }
-//int count = 0;
-//int blinkLimit = 250;
-//void toggleLights(){
-//blinkCount++;
-//if(blinkCount >= blinkLimit){
-//  P1OUT ^= LED_GREEN;
-//  P1OT ^= LED_RED;
-//  blinkLimit = blinkLimit-(blinkLimit/2);
-//  count++;
-//  if(count >= 8){
-//    count = 0;
-//    blinkLimit = 250;
-//    blinkCount = 0;
-//  }
-//}
-//}
-//plays the buzzer based on notes in second notes array
-//based on the timing for each note
-void playSongTwo(){
-  if(secondCount >= time[j]){
-    secondCount = 0;
-    if(j >= 26){
-      j = 0;
+int blinkC = 0;
+int count = 0;
+int blinkL = 500;
+void toggleLights(){
+  blinkC++;
+  if(blinkC >= blinkL){
+    P1OUT ^= LED_RED;
+    blinkL -= 100;
+    count++;
+    if(count >= 4){
+      count = 0;
+      blinkL = 500;
+      blinkC = 0;
     }
-    buzzer_set_period(notes2[j]);
-    j++;
   }
 }
+
+//plays the buzzer based on notes in second notes array
+//based on the timing for each note
 void playSongThree(){
   if(secondCount >= time2[k]){
     secondCount = 0;
@@ -205,6 +195,7 @@ void dim25(int state){
   default:
     break;
   }
+  
 }
 
 void dim50(int state){
