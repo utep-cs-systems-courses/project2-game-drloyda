@@ -11,6 +11,7 @@ LDFLAGS		= -L/opt/ti/msp430_gcc/include
 
 
 
+
 #switch the compiler (for the internal make rules)
 
 CC              = msp430-elf-gcc
@@ -19,24 +20,31 @@ AS              = msp430-elf-as
 
 
 
-all: buzzer.elf
+all: buzzer.elf led.elf
 
 
 
 #additional rules for files
 
-buzzer.elf: playSongTwo-c.o buzzer.o main.o ../lib/libTimer.a
-
+buzzer.elf: greenBeat-c.o buzzer.o main.o ../lib/libTimer.a
 	${CC} ${CFLAGS} -o $@ $^
 
+led.elf: greenBeat-c.o buzzer.o main.o ../lib/libTimer.a
+	${CC} ${CFLAGS} -o $@ $^
 
+led2.elf: greenBeat-s.o buzzer.o main.o ../lib/libTimer.a
+	${CC} ${CFLAGS} -o $@ $^
 
-load: buzzer.elf
+load: buzzer.elf led.elf
+	msp430loader.sh  $^
 
+load2: buzzer.elf led2.elf
 	msp430loader.sh  $^
 
 clean: $^
 
 	rm -f *.o *.elf
 
-playSongTwo-c.o: buzzer.h
+greenBeat-c.o: led.h
+
+greenBeat-s.o: led.h

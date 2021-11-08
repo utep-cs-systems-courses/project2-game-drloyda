@@ -11,5 +11,5 @@ void dim50(int state);
 void dim75(int state);
 void dim100(int state);
 void turnOff();
-void toggleLights();
+void greenBeat();
 #endif // included

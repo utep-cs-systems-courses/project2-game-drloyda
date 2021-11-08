@@ -10,8 +10,9 @@
 #define SW2 BIT1
 #define SW3 BIT2
 #define SW4 BIT3
-#define SWITCHES (SW1 | SW2 | SW3 | SW4)  
+#define SWITCHES (SW1 | SW2 | SW3 | SW4)
 
+   
 int main() {
   P1DIR |= LEDS;
   P1OUT &= ~LED_GREEN;
@@ -78,6 +79,8 @@ int secondCount = 0;
 int i = 0;
 int j = 0;
 int k = -1;
+int ld_r = LED_RED;
+int ld_g = LED_GREEN;
 int notes[64] = {2272, 3407, 4291, 5115, 2554, 3407, 4291, 5115, 2706, 3407, 4291, 5155,
 		 2554, 3407, 4291, 5115, 2554, 3824, 4545, 5730, 2865, 3824, 4545, 5730,
 		 3034, 3824, 4545, 5730, 2865, 3824, 4545, 5730, 2865, 4291, 5115, 6079,
@@ -101,8 +104,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){
     playSongOne();
   }else if(sw2Down == 1 ){ //if sw2 pressed
     playSongTwo();
-  }else if(sw3Down == 1){
-    toggleLights();
+  }else if(sw3Down == 1){  
     playSongThree();
   }else if(sw4Down ==1){
     buzzer_set_period(0);
@@ -125,31 +127,28 @@ void playSongOne(){
     i++;
   }
 }
-int blinkC = 0;
-int count = 0;
-int blinkL = 500;
-void toggleLights(){
-  blinkC++;
-  if(blinkC >= blinkL){
-    P1OUT ^= LED_RED;
-    blinkL -= 100;
-    count++;
-    if(count >= 4){
-      count = 0;
-      blinkL = 500;
-      blinkC = 0;
-    }
-  }
-}
 
 //plays the buzzer based on notes in second notes array
 //based on the timing for each note
+void playSongTwo(){
+  if(secondCount >= time[j]){
+    secondCount = 0;
+    if(j >= 26){
+      j = 0;
+    }
+    greenBeat();
+    buzzer_set_period(notes2[j]);
+    j++;
+  }
+}
+
 void playSongThree(){
   if(secondCount >= time2[k]){
     secondCount = 0;
     if(k >= 37){
       k = -1;
     }
+    greenBeat();
     buzzer_set_period(notes3[k]);
     k++;
   }
